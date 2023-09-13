@@ -10,12 +10,12 @@ set -e
 case "$(uname -s)" in
     CYGWIN*|MINGW32*|MSYS*)
         echo "[esy-build] Detected windows environment..."
-        make -j4 world.opt
+        make -j$(nproc) world.opt
         make flexlink.opt
         ;;
     *)
         echo "[esy-build] Detected OSX / Linux environment"
-        make -j4 world.opt
+        make -j$(nproc) world.opt
         ;;
 esac
 
